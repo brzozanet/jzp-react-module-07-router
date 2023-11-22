@@ -10,6 +10,7 @@ import {
     Outlet,
     Form,
     useLocation,
+    useResolvedPath,
 } from "react-router-dom";
 
 export function createNewNote({ params }) {
@@ -54,7 +55,7 @@ const NotesList = () => {
                     <NavLink
                         key={note.id}
                         to={
-                            location.pathname === "/archive"
+                            location.pathname.includes("/archive")
                                 ? `/archive/${note.id}`
                                 : `/notes/${note.folderId}/note/${note.id}`
                         }
